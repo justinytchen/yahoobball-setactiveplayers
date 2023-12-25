@@ -70,10 +70,10 @@ function Get-CurlFiles {
     $files = Get-ChildItem $inputsFolder
     $res = @()
     foreach ($file in $files){
-        if $file.ToLower().Contains("readme"){
+        $filename =  $file.Name
+        if ($filename.ToLower().Contains("readme")){
             continue
         }
-        $filename =  $file.Name
         $res += $filename
     }
     return $res

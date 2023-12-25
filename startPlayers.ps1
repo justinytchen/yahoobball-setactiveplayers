@@ -2,7 +2,9 @@ Import-Module ./startPlayers.psm1 -Force
 
 $curlFiles = Get-CurlFiles
 
-Remove-Item $tempFolder -Force -Recurse
+if(Test-Path $tempFolder){
+    Remove-Item $tempFolder -Force -Recurse
+}
 Write-Output "Creating temp folder"
 New-Item -Type Directory $tempFolder
 
@@ -14,7 +16,7 @@ foreach ($curlFile in $curlFiles) {
         $ogFileContent = Get-Content $curlFilePath -Raw
         
         Set-ActivePlayersForDate $ogFileContent $date
-        Start-Sleep 1
+        Start-Sleep 1.5
     }
 }
 

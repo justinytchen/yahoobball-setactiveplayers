@@ -30,7 +30,6 @@ function Set-ActivePlayersForDate {
         Write-HostWithTimestamp $parsedContent.errors
         exit 1
     }
-    Write-HostWithTimestamp $parsedContent.errors
     Write-HostWithTimestamp $parsedRes.StatusCode $parsedRes.StatusDescription
     
 

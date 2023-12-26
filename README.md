@@ -26,10 +26,12 @@
    f. Find any instance of startactiveplayers in the network tab, right click, and select Copy->Copy as PowerShell.
    
     Make sure *not* to click on "Copy *all* as PowerShell"
-    
+
     ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/e6b2c17a-c2c1-46ae-9c27-8f1dedeabef6)
 
 
    g. Create a file in `~/yourpath/yahoobball-setactiveplayers/inputs` with this output
 
    h. Repeat for as many teams as you would like, one file per team in the inputs directory
+
+   i. Run the startPlayers.ps1 script `./startPlayers.ps1`

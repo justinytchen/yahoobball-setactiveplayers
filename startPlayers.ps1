@@ -1,4 +1,17 @@
+param (
+    [switch]$Reset = $false
+)
+
 Import-Module ./startPlayers.psm1 -Force
+
+if($Reset){
+    Write-Output "Found save file (previous attempt), will only update lineups of dates not previously set"
+    Remove-Item $saveFile
+}
+elseif(Test-Path $saveFile){
+    Write-Output "Found save file (previous attempt), will only update lineups of dates not previously set"
+    Write-Output "Use the Reset flag to update all lineups from today (./startPlayers.ps1 -Reset)"
+}
 
 Write-Log "-----------------------------------------------------"
 Write-Log "Starting startPlayers.ps1...."

@@ -15,6 +15,7 @@
    c. Navigate to the Network page
 
     ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/0cd28bdc-5a79-4a75-818b-c4b001a5b425)
+   
    d. Click on Start Active Players
 
     ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/68d31569-518e-4f8b-87b3-619c7ae7bae0)

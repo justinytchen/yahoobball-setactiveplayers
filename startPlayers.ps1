@@ -10,7 +10,7 @@ if($Reset){
 }
 elseif(Test-Path $saveFile){
     Write-Output "Found save file from a previous attempt at $saveFile, will only update lineups of dates not previously set"
-    Write-Output "Use the Reset flag to update all lineups from today (./startPlayers.ps1 -Reset)"
+    Write-Output "Use the Reset flag to update all lineups (./startPlayers.ps1 -Reset)"
 }
 
 Write-Log "-----------------------------------------------------"

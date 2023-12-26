@@ -16,7 +16,7 @@ foreach ($curlFile in $curlFiles) {
         $ogFileContent = Get-Content $curlFilePath -Raw
         
         Set-ActivePlayersForDate $ogFileContent $date
-        Start-Sleep -Seconds 2
+        Start-Sleep -Seconds 3
     }
 }
 

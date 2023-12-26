@@ -24,38 +24,38 @@ function Set-ActivePlayersForDate {
 
     $saved = Get-Content $saveFile | ConvertFrom-Json
     if($saved.$tempfilename){
-        Write-HostWithTimestamp "Already processed"
+        Write-Log "Already processed"
         return
     }
 
-    Write-HostWithTimestamp "Generating new script"
+    Write-Log "Generating new script"
     $newContent = New-CurlContent $ogFileContent
     $newContent = Set-RequestDate -fileContent $newContent -dateString $dateString
     # Write generated script
     $tempPath = Join-Path -Path $tempFolder -ChildPath  $tempfilename
-    Write-HostWithTimestamp "Writing new script to $tempPath"
+    Write-Log "Writing new script to $tempPath"
     Write-Output $newContent > $tempPath 
 
     # Run generated script
     $sleepTime = 1 + (Get-Random -Maximum 8)
     Start-Sleep -Seconds $sleepTime
-    Write-HostWithTimestamp "Running new script after delay: $sleepTime seconds"
+    Write-Log "Running new script after delay: $sleepTime seconds"
 
     $res = & $tempPath 
     $parsedRes = $res | ConvertFrom-Json 
     $statusCode = $parsedRes.StatusCode
     if ($parsedRes.StatusCode -ne 200){
-        Write-HostWithTimestamp "POST request had errors"
+        Write-Log "POST request had errors"
         "POST request had non-200 response"
         exit 1
     }
     $parsedContent = $parsedRes.Content | ConvertFrom-Json 
     if ($parsedContent.errors) {
-        Write-HostWithTimestamp "POST request had errors"
-        Write-HostWithTimestamp $parsedContent.errors
+        Write-Log "POST request had errors"
+        Write-Log $parsedContent.errors
         exit 1
     }
-    Write-HostWithTimestamp $parsedRes.StatusCode $parsedRes.StatusDescription
+    Write-Log $parsedRes.StatusCode $parsedRes.StatusDescription
 
     $saved | Add-Member -MemberType NoteProperty -Name $tempfilename -Value 'true'
     $savedJson = $saved | ConvertTo-Json
@@ -106,9 +106,9 @@ function Get-CurlFiles {
     return $res
 }
 
-function Write-HostWithTimestamp {
+function Write-Log {
     $TimeStamp = Get-Date -Format "MM/dd/yy HH:mm:ss"
-    Write-Host "$TimeStamp : "  @args
+    Write-Host "$TimeStamp : "  @args *>> $logFile
 }
 
 function Get-DateArray{

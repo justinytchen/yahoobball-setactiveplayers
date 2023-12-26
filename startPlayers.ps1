@@ -9,7 +9,7 @@ if($Reset){
     Remove-Item $saveFile
 }
 elseif(Test-Path $saveFile){
-    Write-Output "Found save file (previous attempt), will only update lineups of dates not previously set"
+    Write-Output "Found save file from a previous attempt at $saveFile, will only update lineups of dates not previously set"
     Write-Output "Use the Reset flag to update all lineups from today (./startPlayers.ps1 -Reset)"
 }
 

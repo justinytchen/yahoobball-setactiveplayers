@@ -11,14 +11,19 @@
    b. Right click on any part of the page and open Inspect Element
 
    c. Navigate to the Network page
-    ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/091ff6cd-8bd0-470f-88de-2411c0a0cc04)
+    ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/0cd28bdc-5a79-4a75-818b-c4b001a5b425)
    d. Click on Start Active Players
     ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/68d31569-518e-4f8b-87b3-619c7ae7bae0)
 
    e. Click on Start
+   
     ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/61aee73e-c74d-451c-9e3f-a2bcb6c9b754)
-    
-   f. Find any instance of startactiveplayerse in the network tab, right click, and select Copy->Copy as PowerShell
+
+   f. Find any instance of startactiveplayers in the network tab, right click, and select Copy->Copy as PowerShell.
+   
+    Make sure *not* to click on "Copy *all* as PowerShell"
+    ![alt text](https://github.com/justinytchen/yahoobball-setactiveplayers/assets/6785106/e6b2c17a-c2c1-46ae-9c27-8f1dedeabef6)
+
 
    g. Create a file in `~/yourpath/yahoobball-setactiveplayers/inputs` with this output
 

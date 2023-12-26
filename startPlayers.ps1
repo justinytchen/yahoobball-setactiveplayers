@@ -1,5 +1,8 @@
 Import-Module ./startPlayers.psm1 -Force
 
+Write-Log "-----------------------------------------------------"
+Write-Log "Starting startPlayers.ps1...."
+Write-Log "-----------------------------------------------------"
 Write-Output "Writing full logs to $logFile"
 
 $curlFiles = Get-CurlFiles
@@ -17,7 +20,7 @@ foreach ($curlFile in $curlFiles) {
     $i = 0
     foreach($date in $dates) {
         $percent = [math]::Round(100 * $i/$dates.Length, 1)
-        Write-Progress -Activity "Setting lineups" -Status "$percent% Complete:" -PercentComplete $percent
+        Write-Progress -Activity "Setting lineups for $curlFile" -Status "$percent% Complete:" -PercentComplete $percent
         Write-Log "Reading file: $curlFile"
         $curlFilePath = Join-Path -Path $inputsFolder -ChildPath $curlFile
         $ogFileContent = Get-Content $curlFilePath -Raw
